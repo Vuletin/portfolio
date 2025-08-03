@@ -1,0 +1,90 @@
+/* ==== Global Styles ==== */
+body {
+    background-color: #0d0d0d;          /* Very dark gray/black background */
+    color: #e6e6e6;                     /* Light gray text for contrast */
+    font-family: 'Press Start 2P', monospace, sans-serif; /* Pixel hacker font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==== Navbar ==== */
+.navbar {
+    background-color: #1a1a1a !important;   /* Darker navbar */
+    border-bottom: 2px solid #00ffcc;       /* Neon teal border */
+}
+
+.navbar-brand,
+.nav-link {
+    color: #00ffcc !important;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: #ff33cc !important;              /* Neon pink hover */
+}
+
+/* ==== Headings ==== */
+h1, h2, h3, h4 {
+    color: #00ffcc;                         /* Neon teal for headers */
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.7); /* Glow effect */
+}
+
+/* ==== Links ==== */
+a {
+    color: #00ffcc;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff33cc;
+    text-shadow: 0 0 5px rgba(255, 51, 204, 0.7);
+}
+
+/* ==== Footer ==== */
+footer {
+    background-color: #1a1a1a;
+    border-top: 2px solid #00ffcc;
+    color: #999;
+    font-size: 12px;
+}
+
+/* ==== Buttons ==== */
+.btn-primary {
+    background-color: #00ffcc;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background-color: #ff33cc;
+    color: #fff;
+}
+
+/* ==== Contact Form ==== */
+form label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #00ffcc;
+}
+form input, form textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #00ffcc;
+    color: #e6e6e6;
+}
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #ff33cc;
+    box-shadow: 0 0 5px rgba(255, 51, 204, 0.7);
+}
+
+/* ==== Optional Terminal-like effect for code sections (later) ==== */
+pre, code {
+    background-color: #111;
+    color: #00ffcc;
+    padding: 5px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
