@@ -144,9 +144,9 @@ h1, h2, h3, p {
 }
 
 @keyframes flicker {
-    0% { opacity: 1; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; }
-    50% { opacity: 0.8; text-shadow: 0 0 2px #00ffcc; }
-    100% { opacity: 1; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; }
+    0% { opacity: 1; text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+    50% { opacity: 0.8; text-shadow: 0 0 2px currentColor; }
+    100% { opacity: 1; text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
 }
 
 /* 🔥 Screen flicker effect for the body */
@@ -173,4 +173,28 @@ body {
     border-color: #ff33cc !important;
     box-shadow: 0 0 5px rgba(255, 51, 204, 0.7) !important;
     outline: none !important;
+}
+
+/* ===== CRT Horizontal Sweep Line ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 49%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0) 51%
+    );
+    pointer-events: none;
+    animation: scanline 5s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes scanline {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(100%); }
 }
