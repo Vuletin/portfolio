@@ -149,7 +149,7 @@ h1, h2, h3 {
     100% { opacity: 1; text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; }
 }
 
-/* 🔥 Screen flicker effect for the body */
+/* 🔥 Screen flicker effect for the body
 body {
     animation: screen-flicker 4s infinite alternate;
 }
@@ -159,7 +159,8 @@ body {
     50%  { background-color: #0e0e0e; }
     100% { background-color: #0d0d0d; }
 }
-
+ */
+ 
 /* 🔥 Override Bootstrap for dark inputs */
 .form-control {
     background-color: #0d0d0d !important;   /* Force black background */
