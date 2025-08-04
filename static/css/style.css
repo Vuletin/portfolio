@@ -185,16 +185,16 @@ body::before {
     height: 200%;
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0) 49%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0) 51%
+        rgba(0, 255, 204, 0) 45%,     /* fully transparent before line */
+        rgba(0, 255, 204, 0.08) 50%,  /* soft teal center */
+        rgba(0, 255, 204, 0) 55%      /* fade out again */
     );
     pointer-events: none;
     animation: scanline 5s linear infinite;
     z-index: 9999;
 }
-
 @keyframes scanline {
     from { transform: translateY(-100%); }
     to   { transform: translateY(100%); }
 }
+
