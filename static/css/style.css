@@ -182,7 +182,7 @@ body::before {
     top: -100%;
     left: 0;
     width: 100%;
-    height: 200%;
+    height: 100%;
     background: linear-gradient(
         to bottom,
         rgba(0, 255, 204, 0) 45%,
@@ -199,4 +199,50 @@ body::before {
 @keyframes scanline {
     from { transform: translateY(-100%); }
     to   { transform: translateY(100%); }
+}
+
+/* === CRT Distortion (blur + wave stretch) === */
+body {
+    animation: crt-wave 6s infinite;
+}
+
+@keyframes crt-wave {
+    0%, 100% {
+        filter: none;
+        transform: none;
+    }
+    45% {
+        filter: blur(1px) brightness(1.2);
+        transform: scaleX(1.02);
+    }
+    50% {
+        filter: blur(1.5px) brightness(1.4);
+        transform: scaleX(1.04);
+    }
+    55% {
+        filter: blur(1px) brightness(1.2);
+        transform: scaleX(1.02);
+    }
+}
+
+/* === CRT Static/Noise Overlay === */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.ibb.co/2Y3bR8P/tv-static.png');
+    opacity: 0.05; /* subtle, can increase to 0.08 */
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+    animation: static-flicker 0.3s infinite steps(2);
+}
+
+@keyframes static-flicker {
+    0% { opacity: 0.04; }
+    50% { opacity: 0.06; }
+    100% { opacity: 0.04; }
 }
