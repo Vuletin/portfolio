@@ -139,7 +139,7 @@ pre, code {
     color: #ff33cc; /* Neon pink prompt */
 }
 /* Flicker effect for headers */
-h1, h2, h3, p {
+h1, h2, h3, p, .prompt {
     animation: flicker 2.5s infinite alternate;
 }
 
@@ -222,4 +222,60 @@ body {
     }
 }
 
+/* General Reset & Font */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f0f;
+  color: #00ffcc;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
 
+/* Text distortion animation */
+.glitchy-text {
+  display: inline-block;
+  animation: distortText 2s infinite;
+}
+
+@keyframes distortText {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  5% {
+    transform: scaleX(1.3);
+  }
+  6% {
+    transform: scaleX(0.9);
+  }
+  7% {
+    transform: scaleX(1.1);
+  }
+  8% {
+    transform: scaleX(1);
+  }
+}
+
+/* Static/Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.05;
+  z-index: 1000;
+  animation: grainMove 1.5s steps(2) infinite;
+}
+
+@keyframes grainMove {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(1px, 1px); }
+}
