@@ -215,31 +215,13 @@ body::after {
     mix-blend-mode: overlay;
     animation: static-flicker 0.3s infinite steps(2);
 }
-
-/* === CRT Distortion (blur + wave stretch) ===
-h1, h2, h3, p, .prompt .glitchy-text {
-    animation: crt-wave 6s infinite;
+/* Flicker effect for CRT static */
+@keyframes static-flicker {
+    0% { opacity: 0.04; }
+    50% { opacity: 0.06; }
+    100% { opacity: 0.04; }
 }
 
-@keyframes crt-wave {
-    0%, 100% {
-        filter: none;
-        transform: none;
-    }
-    45% {
-        filter: blur(0.5px) brightness(1.1);
-        transform: scaleX(1.01);
-    }
-    50% {
-        filter: blur(0.8px) brightness(1.2);
-        transform: scaleX(1.02);
-    }
-    55% {
-        filter: blur(0.5px) brightness(1.1);
-        transform: scaleX(1.01);
-    }
-}
- */
 /* === CRT Static/Noise Overlay === */
 body::after {
     content: "";
@@ -260,4 +242,31 @@ body::after {
     0% { opacity: 0.04; }
     50% { opacity: 0.06; }
     100% { opacity: 0.04; }
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 100;
+}
+#typed {
+    color: #ffffff;
+    text-shadow:
+        -1px 0 red,
+        1px 0 blue;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 2rem;
+    position: relative;
+    z-index: 10;
 }
