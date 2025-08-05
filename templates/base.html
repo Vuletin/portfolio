@@ -52,15 +52,18 @@
     <!-- ✅ Custom JS for typing effect -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const text = "Welcome to Sava's Portfolio...";
+            const typedElement = document.getElementById("typed");
+            const text = typedElement.getAttribute("data-text");
             let i = 0;
+
             function typeEffect() {
-            if (i < text.length) {
-                document.getElementById("typed").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeEffect, 100);
+                if (i < text.length) {
+                    typedElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeEffect, 100);
+                }
             }
-            }
+
             typeEffect();
         });
     </script>
