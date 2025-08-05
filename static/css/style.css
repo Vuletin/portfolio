@@ -175,7 +175,7 @@ body {
     outline: none !important;
 }
 
-/* ===== CRT Scanline Sweep ===== 
+/* ===== CRT Scanline Sweep ===== */
 body::before {
     content: "";
     position: fixed;
@@ -186,21 +186,20 @@ body::before {
     background: linear-gradient(
         to bottom,
         rgba(0, 255, 204, 0) 45%,
-        rgba(0, 255, 204, 0.12) 50%,  /* slightly stronger teal for distortion
+        rgba(0, 255, 204, 0.12) 50%,  /* slightly stronger teal for distortion */
         rgba(0, 255, 204, 0) 55%
     );
     pointer-events: none;
     animation: scanline 5s linear infinite;
     z-index: 9999;
-    mix-blend-mode: screen; /* Makes the sweep blend instead of overlaying harshly
+    mix-blend-mode: screen; /* Makes the sweep blend instead of overlaying harshly */
 }
 
-/* Moves the sweep top → bottom
+/* Moves the sweep top → bottom */
 @keyframes scanline {
     from { transform: translateY(-100%); }
     to   { transform: translateY(100%); }
 }
-*/
 
 body::after {
     content: "";
@@ -217,7 +216,7 @@ body::after {
     animation: static-flicker 0.3s infinite steps(2);
 }
 
-/* === CRT Distortion (blur + wave stretch) === */
+/* === CRT Distortion (blur + wave stretch) ===
 h1, h2, h3, p, .prompt .glitchy-text {
     animation: crt-wave 6s infinite;
 }
@@ -240,7 +239,7 @@ h1, h2, h3, p, .prompt .glitchy-text {
         transform: scaleX(1.01);
     }
 }
-
+ */
 /* === CRT Static/Noise Overlay === */
 body::after {
     content: "";
