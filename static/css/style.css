@@ -26,7 +26,7 @@ body {
 }
 
 /* ==== Headings ==== */
-h1, h2, h3, h4 {
+h1, h2, h3, h4,  p, .prompt, .cursor, a {
     color: #00ffcc;                         /* Neon teal for headers */
     text-shadow: 0 0 3px rgba(0, 255, 204, 0.7); /* Glow effect */
 }
@@ -139,8 +139,8 @@ pre, code {
     color: #ff33cc; /* Neon pink prompt */
 }
 /* Flicker effect for headers */
-h1, h2, h3, p, .prompt {
-    animation: flicker 2.5s infinite alternate;
+h1, h2, h3, p, .prompt, .cursor, a {
+    animation: flicker 4s infinite alternate;
 }
 
 @keyframes flicker {
@@ -176,26 +176,47 @@ body {
 }
 
 /* ===== CRT Scanline Sweep ===== */
-body::before {
-    content: "";
+/* Container for all lines */
+.scanline-container {
     position: fixed;
     top: 0;
     left: 0;
-    height: 2px; /* thin line */
     width: 100%;
-    background: rgba(0, 255, 204, 0.07);
+    height: 100%;
+    pointer-events: none;
+    z-index: 9997;
+    overflow: hidden;
+}
+
+/* Each moving line */
+.scanline {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 255, 204, 0.06);
+    animation: scanline-move 4s linear infinite;
+    will-change: transform;
     mix-blend-mode: screen;
-    animation: scanline 3s linear infinite;
-    z-index: 9998;
+    opacity: 0.07;
 }
 
-/* Moves the sweep top → bottom */
-@keyframes scanline {
-    from { transform: translateY(0); }
-    to   { transform: translateY(100vh); }
+/* Wobble and move down */
+@keyframes scanline-move {
+    0% {
+        transform: translateY(0) scaleX(1);
+    }
+    30% {
+        transform: translateY(30vh) scaleX(1.01);
+    }
+    60% {
+        transform: translateY(60vh) scaleX(0.98);
+    }
+    100% {
+        transform: translateY(100vh) scaleX(1);
+    }
 }
 
-/* === CRT Static/Noise Overlay === */
+/* === CRT Static/Noise Overlay === 
 body::after {
     content: "";
     position: fixed;
@@ -210,14 +231,14 @@ body::after {
     mix-blend-mode: overlay;
     animation: static-flicker 0.3s infinite steps(2);
 }
-
-/* Flicker effect for CRT static */
+*/
+/* Flicker effect for CRT static 
 @keyframes static-flicker {
     0% { opacity: 0.04; }
     50% { opacity: 0.06; }
     100% { opacity: 0.04; }
 }
-
+*/
 /* === CRT Static/Noise Overlay === */
 body::after {
     content: "";
@@ -233,6 +254,15 @@ body::after {
     z-index: 9999;
     mix-blend-mode: overlay;
     animation: static-flicker 0.3s infinite steps(2);
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 204, 0.03) 3px
+        ),
+        url('https://i.ibb.co/2Y3bR8P/tv-static.png');
+    background-size: 100% 3px, 200% 200%;
 }
 
 @keyframes static-flicker {
@@ -266,4 +296,15 @@ body::after {
     font-size: 2rem;
     position: relative;
     z-index: 10;
+}
+
+.chromatic {
+    position: relative;
+    display: inline-block;
+    color: #00ffcc; /* your glow color */
+
+    text-shadow:
+        1px 0 red,
+        -1px 0 blue,
+        0 1px green;
 }
