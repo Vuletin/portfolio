@@ -179,28 +179,23 @@ body {
 body::before {
     content: "";
     position: fixed;
-    top: -100%;
+    top: 0;
     left: 0;
+    height: 2px; /* thin line */
     width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 255, 204, 0) 45%,
-        rgba(0, 255, 204, 0.12) 50%,  /* slightly stronger teal for distortion */
-        rgba(0, 255, 204, 0) 55%
-    );
-    pointer-events: none;
-    animation: scanline 5s linear infinite;
-    z-index: 9999;
-    mix-blend-mode: screen; /* Makes the sweep blend instead of overlaying harshly */
+    background: rgba(0, 255, 204, 0.07);
+    mix-blend-mode: screen;
+    animation: scanline 3s linear infinite;
+    z-index: 9998;
 }
 
 /* Moves the sweep top → bottom */
 @keyframes scanline {
-    from { transform: translateY(-100%); }
-    to   { transform: translateY(100%); }
+    from { transform: translateY(0); }
+    to   { transform: translateY(100vh); }
 }
 
+/* === CRT Static/Noise Overlay === */
 body::after {
     content: "";
     position: fixed;
@@ -215,6 +210,7 @@ body::after {
     mix-blend-mode: overlay;
     animation: static-flicker 0.3s infinite steps(2);
 }
+
 /* Flicker effect for CRT static */
 @keyframes static-flicker {
     0% { opacity: 0.04; }
@@ -230,8 +226,9 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.05; /* subtle, can increase to 0.08 */
+    background: url('https://i.ibb.co/2Y3bR8P/tv-static.png');
+    background-size: 200% 200%; /* Zoom into the noise */
+    opacity: 0.08; /* Increase for visibility */
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: overlay;

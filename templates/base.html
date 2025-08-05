@@ -51,21 +51,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- ✅ Custom JS for typing effect -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const typedElement = document.getElementById("typed");
-            const text = typedElement.getAttribute("data-text");
-            let i = 0;
+    document.addEventListener("DOMContentLoaded", function () {
+        const textSpan = document.querySelector('[data-text]');
+        const text = textSpan.getAttribute('data-text');
+        let i = 0;
 
-            function typeEffect() {
-                if (i < text.length) {
-                    typedElement.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typeEffect, 100);
-                }
+        function typeEffect() {
+            if (i < text.length) {
+                textSpan.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, 50); // typing speed
             }
-
-            typeEffect();
-        });
+        }
+        typeEffect();
+    });
     </script>
 </body>
 </html>
