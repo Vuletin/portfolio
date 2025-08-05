@@ -175,7 +175,7 @@ body {
     outline: none !important;
 }
 
-/* ===== CRT Scanline Sweep ===== */
+/* ===== CRT Scanline Sweep ===== 
 body::before {
     content: "";
     position: fixed;
@@ -186,23 +186,39 @@ body::before {
     background: linear-gradient(
         to bottom,
         rgba(0, 255, 204, 0) 45%,
-        rgba(0, 255, 204, 0.12) 50%,  /* slightly stronger teal for distortion */
+        rgba(0, 255, 204, 0.12) 50%,  /* slightly stronger teal for distortion
         rgba(0, 255, 204, 0) 55%
     );
     pointer-events: none;
     animation: scanline 5s linear infinite;
     z-index: 9999;
-    mix-blend-mode: screen; /* Makes the sweep blend instead of overlaying harshly */
+    mix-blend-mode: screen; /* Makes the sweep blend instead of overlaying harshly
 }
 
-/* Moves the sweep top → bottom */
+/* Moves the sweep top → bottom
 @keyframes scanline {
     from { transform: translateY(-100%); }
     to   { transform: translateY(100%); }
 }
+*/
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+    animation: static-flicker 0.3s infinite steps(2);
+}
 
 /* === CRT Distortion (blur + wave stretch) === */
-body {
+h1, h2, h3, p, .prompt .glitchy-text {
     animation: crt-wave 6s infinite;
 }
 
@@ -212,16 +228,16 @@ body {
         transform: none;
     }
     45% {
-        filter: blur(1px) brightness(1.2);
-        transform: scaleX(1.02);
+        filter: blur(0.5px) brightness(1.1);
+        transform: scaleX(1.01);
     }
     50% {
-        filter: blur(1.5px) brightness(1.4);
-        transform: scaleX(1.04);
+        filter: blur(0.8px) brightness(1.2);
+        transform: scaleX(1.02);
     }
     55% {
-        filter: blur(1px) brightness(1.2);
-        transform: scaleX(1.02);
+        filter: blur(0.5px) brightness(1.1);
+        transform: scaleX(1.01);
     }
 }
 
@@ -233,7 +249,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://i.ibb.co/2Y3bR8P/tv-static.png');
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
     opacity: 0.05; /* subtle, can increase to 0.08 */
     pointer-events: none;
     z-index: 9999;
