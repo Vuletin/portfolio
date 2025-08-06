@@ -138,6 +138,7 @@ pre, code {
 .prompt {
     color: #ff33cc; /* Neon pink prompt */
 }
+
 /* Flicker effect for headers */
 h1, h2, h3, p, .prompt, .cursor, a {
     animation: flicker 4s infinite alternate;
