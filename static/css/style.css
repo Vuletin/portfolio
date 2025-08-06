@@ -26,7 +26,7 @@ body {
 }
 
 /* ==== Headings ==== */
-h1, h2, h3, h4, a {
+h1, h2, h3, h4 {
     color: #00ffcc;                         /* Neon teal for headers */
     text-shadow: 0 0 3px currentColor; /* Glow effect */
 }
@@ -140,7 +140,7 @@ pre, code {
 }
 
 /* Flicker effect for headers */
-h1, h2, h3, p, a {
+h1, h2, h3, p {
     animation: flicker 4s infinite alternate;
 }
 
