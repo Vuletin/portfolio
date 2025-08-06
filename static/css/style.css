@@ -277,7 +277,7 @@ body::after {
 .chromatic {
     position: relative;
     display: inline-block;
-    color: #00ffcc; /* your glow color */
+    color: currentColor; /* your glow color */
 
     text-shadow:
         1px 0 red,
