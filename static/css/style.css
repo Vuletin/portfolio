@@ -108,9 +108,11 @@ pre, code {
 
 /* ==== Terminal Intro Style ==== */
 .terminal p {
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
+    white-space: pre-wrap; /* Preserve whitespace */
+    word-break: break-word; /* Break long words */
+    display: flex; /* Flexbox for alignment */
+    align-items: flex-start; /* Align items to the start */
+    flex-wrap: wrap; /* Allow wrapping */
     font-family: 'Press Start 2P', monospace;
     font-size: 14px;
     color: #00ffcc;
@@ -273,17 +275,41 @@ body::after {
     z-index: 100;
 }
 
-.glow-chromatic {
-  position: relative;
-  display: inline-block;
-  text-shadow:
-    /* Glow */
-    0 0 3px currentColor,
-    0 0 7px currentColor,
-
-    /* Chromatic Aberration (RGB offsets) */
-    1px 0 red,
-    -1px 0 blue,
-    0 1px green;
+@keyframes glow-breathe {
+    0%, 100% {
+        text-shadow:
+            0 0 3px currentColor,
+            0 0 7px currentColor,
+            1px 0 red,
+            -1px 0 blue,
+            0 1px green;
+    }
+    50% {
+        text-shadow:
+            0 0 6px currentColor,
+            0 0 12px currentColor,
+            1px 0 red,
+            -1px 0 blue,
+            0 1px green;
+    }
 }
 
+.glow-chromatic {
+    position: relative;
+    display: inline-block;
+    animation: glow-breathe 3s infinite ease-in-out;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-glow 4s linear infinite;
+}
+
+@keyframes gradient-glow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
