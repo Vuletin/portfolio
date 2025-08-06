@@ -26,9 +26,9 @@ body {
 }
 
 /* ==== Headings ==== */
-h1, h2, h3, h4,  p, .prompt, .cursor, a {
+h1, h2, h3, h4, a {
     color: #00ffcc;                         /* Neon teal for headers */
-    text-shadow: 0 0 3px rgba(0, 255, 204, 0.7); /* Glow effect */
+    text-shadow: 0 0 3px currentColor; /* Glow effect */
 }
 
 /* ==== Links ==== */
