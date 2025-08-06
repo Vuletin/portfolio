@@ -61,18 +61,17 @@
     <!-- ✅ Custom JS for typing effect -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const textSpan = document.querySelector('[data-text]');
-        const text = textSpan.getAttribute('data-text');
+        const el = document.querySelector("[data-text]");
+        const text = el?.getAttribute("data-text") || "";
         let i = 0;
-
-        function typeEffect() {
+        function type() {
             if (i < text.length) {
-                textSpan.textContent += text.charAt(i);
+                el.innerHTML += text.charAt(i);
                 i++;
-                setTimeout(typeEffect, 50); // typing speed
+                setTimeout(type, 70);
             }
         }
-        typeEffect();
+        type();
     });
     </script>
 </body>

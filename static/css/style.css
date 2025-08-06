@@ -107,7 +107,10 @@ pre, code {
 }
 
 /* ==== Terminal Intro Style ==== */
-.terminal {
+.terminal p {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
     font-family: 'Press Start 2P', monospace;
     font-size: 14px;
     color: #00ffcc;
@@ -242,7 +245,7 @@ body::after {
         repeating-linear-gradient(
             to bottom,
             transparent,
-            transparent 2px,
+            transparent 4px,
             rgba(0, 255, 204, 0.03) 3px
         ),
 }
@@ -269,30 +272,8 @@ body::after {
     );
     z-index: 100;
 }
-.typed {
-    color: #ffffff;
-    text-shadow:
-        -1px 0 red,
-        1px 0 blue;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 2rem;
-    position: relative;
-    z-index: 10;
-}
-
-.chromatic {
-    position: relative;
-    display: inline-block;
-    color: currentColor; /* your glow color */
-
-    text-shadow:
-        1px 0 red,
-        -1px 0 blue,
-        0 1px green;
-}
 
 .glow-chromatic {
-  color: currentColor;
   position: relative;
   display: inline-block;
   text-shadow:
