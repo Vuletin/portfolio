@@ -290,3 +290,19 @@ body::after {
         -1px 0 blue,
         0 1px green;
 }
+
+.glow-chromatic {
+  color: currentColor;
+  position: relative;
+  display: inline-block;
+  text-shadow:
+    /* Glow */
+    0 0 3px currentColor,
+    0 0 7px currentColor,
+
+    /* Chromatic Aberration (RGB offsets) */
+    1px 0 red,
+    -1px 0 blue,
+    0 1px green;
+}
+
