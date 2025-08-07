@@ -317,6 +317,7 @@ body::after {
 .glow-chromatic {
     position: relative;
     animation: glow-pulse 2.5s infinite alternate;
+    filter: brightness(1.1); /* optional for more intensity */
 }
 
 .glow-chromatic::before,
@@ -326,20 +327,20 @@ body::after {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     color: transparent;
 }
 
 .glow-chromatic::before {
-    text-shadow: 1px 0 red;
-    transform: translateX(-1px);
-    opacity: 0.6;
+    text-shadow: 2px 0 red;
+    transform: translateX(-1.5px);
+    opacity: 0.8;
 }
 
 .glow-chromatic::after {
-    text-shadow: -1px 0 blue;
-    transform: translateX(1px);
-    opacity: 0.6;
+    text-shadow: -2px 0 blue;
+    transform: translateX(1.5px);
+    opacity: 0.8;
 }
 
 @keyframes glow-pulse {
