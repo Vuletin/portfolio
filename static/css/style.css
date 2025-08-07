@@ -108,10 +108,10 @@ pre, code {
 
 /* ==== Terminal Intro Style ==== */
 .terminal p {
-    white-space: pre; /* Preserve whitespace */
+    white-space: normal; /* normal whitespace */
     overflow-x: auto; /* Allow horizontal scrolling */
     word-break: break-word; /* Break long words */
-    display: flex; /* Flexbox for alignment */
+    display: inline; /* inline for alignment */
     align-items: center; /* Align items to the center */
     flex-wrap: nowrap; /* No wrapping */
     font-family: 'Press Start 2P', monospace;
