@@ -59,26 +59,38 @@
     </div>
 
     <!-- ✅ Custom JS for typing effect -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const targets = document.querySelectorAll("[data-text]");
-            
-            targets.forEach(target => {
-                const fullText = target.getAttribute("data-text");
-                target.textContent = ""; // Clear it
-                let i = 0;
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const allTargets = document.querySelectorAll("[data-text]");
+    
+    allTargets.forEach(target => {
+        const fullText = target.getAttribute("data-text");
+        target.textContent = ""; // clear text
+        let i = 0;
 
-                function typeChar() {
-                    if (i < fullText.length) {
-                        target.textContent += fullText.charAt(i);
-                        i++;
-                        setTimeout(typeChar, 60);
-                    }
-                }
+        // Move the cursor just after this span
+        const cursor = document.querySelector(".cursor");
+        const updateCursor = () => {
+            if (cursor && target.parentNode) {
+                target.parentNode.insertBefore(cursor, target.nextSibling);
+            }
+        };
 
-                typeChar();
-            });
-        });
-    </script>
+        function typeChar() {
+            if (i < fullText.length) {
+                target.textContent += fullText.charAt(i);
+                updateCursor(); // keep cursor following
+                i++;
+                setTimeout(typeChar, 50);
+            } else {
+                // Reveal chromatic layers after typing finishes
+                target.classList.add("reveal");
+            }
+        }
+
+        typeChar();
+    });
+});
+</script>
 </body>
 </html>

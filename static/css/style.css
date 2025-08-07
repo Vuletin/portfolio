@@ -332,6 +332,8 @@ body::after {
     z-index: 0; /* Behind the main text */
     color: transparent;
     mix-blend-mode: screen; /* Helps blend colors softly */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .glow-chromatic::before {
