@@ -294,7 +294,7 @@ body::after {
     }
 }
 
-.glow-chromatic {
+.gradient-effect {
     position: relative;
     display: inline-block;
     animation: glow-breathe 3s infinite ease-in-out;
@@ -312,4 +312,48 @@ body::after {
 @keyframes gradient-glow {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
+}
+
+.glow-chromatic {
+    position: relative;
+    color: currentColor;
+    animation: glow-pulse 2.5s infinite alternate;
+}
+
+.glow-chromatic::before,
+.glow-chromatic::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    color: transparent;
+}
+
+.glow-chromatic::before {
+    text-shadow: 1px 0 red;
+    transform: translateX(-1px);
+    opacity: 0.6;
+}
+
+.glow-chromatic::after {
+    text-shadow: -1px 0 blue;
+    transform: translateX(1px);
+    opacity: 0.6;
+}
+
+@keyframes glow-pulse {
+    0% {
+        text-shadow:
+            0 0 1px currentColor,
+            0 0 3px currentColor,
+            0 0 6px currentColor;
+    }
+    100% {
+        text-shadow:
+            0 0 2px currentColor,
+            0 0 5px currentColor,
+            0 0 10px currentColor;
+    }
 }
