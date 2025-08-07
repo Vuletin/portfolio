@@ -317,13 +317,14 @@ body::after {
 }
 
 .glow-chromatic {
-    position: relative;
+    position: relative; /* Position relative for pseudo-elements */
     animation: glow-pulse 2.5s infinite alternate;
-    filter: brightness(1.1); /* optional for more intensity */
-    color: #00ffcc; /* Use neon teal for main color (or any you want) */
-    z-index: 2;
+    text-shadow:
+        0 0 1px #00ffcc,
+        0 0 3px #00ffcc,
+        0 0 6px #00ffcc;
 }
-
+/*
 .glow-chromatic::before,
 .glow-chromatic::after {
     content: attr(data-text);
@@ -331,13 +332,20 @@ body::after {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 0; /* Behind the main text */
+    z-index: 0; /* Behind the main text 
     color: transparent;
-    mix-blend-mode: screen; /* Helps blend colors softly */
+    mix-blend-mode: screen; /* Helps blend colors softly 
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
+*/
 
+.chromatic-finish {
+    text-shadow:
+        1px 0 red,
+       -1px 0 blue;
+}
+/*
 .glow-chromatic::before {
     text-shadow: 1px 0 red;
     transform: translateX(-1px);
@@ -364,3 +372,4 @@ body::after {
             0 0 10px currentColor;
     }
 }
+*/
