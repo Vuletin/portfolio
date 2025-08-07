@@ -316,7 +316,6 @@ body::after {
 
 .glow-chromatic {
     position: relative;
-    color: currentColor;
     animation: glow-pulse 2.5s infinite alternate;
 }
 
