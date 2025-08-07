@@ -108,12 +108,14 @@ pre, code {
 
 /* ==== Terminal Intro Style ==== */
 .terminal p {
-    white-space: pre-wrap; /* Preserve whitespace */
+    white-space: pre; /* Preserve whitespace */
+    overflow-x: auto; /* Allow horizontal scrolling */
     word-break: break-word; /* Break long words */
     display: flex; /* Flexbox for alignment */
-    align-items: flex-start; /* Align items to the start */
-    flex-wrap: wrap; /* Allow wrapping */
+    align-items: center; /* Align items to the center */
+    flex-wrap: nowrap; /* No wrapping */
     font-family: 'Press Start 2P', monospace;
+    gap: 0.2rem; /* Space between prompt and text */
     font-size: 14px;
     color: #00ffcc;
     background-color: #000;
@@ -318,7 +320,7 @@ body::after {
     position: relative;
     animation: glow-pulse 2.5s infinite alternate;
     filter: brightness(1.1); /* optional for more intensity */
-    color: currentColor; /* Use neon teal for main color (or any you want) */
+    color: #00ffcc; /* Use neon teal for main color (or any you want) */
     z-index: 2;
 }
 
@@ -328,24 +330,26 @@ body::after {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
-    color: currentColor;
     pointer-events: none;
-    mix-blend-mode: screen;
-    opacity: 0.5;
+    z-index: 0; /* Behind the main text */
+    color: transparent;
+    mix-blend-mode: screen; /* Helps blend colors softly */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .glow-chromatic::before {
     text-shadow: 1px 0 red;
     transform: translateX(-1px);
+    opacity: 0.6;
 }
 
 .glow-chromatic::after {
     text-shadow: -1px 0 blue;
     transform: translateX(1px);
+    opacity: 0.6;
 }
 
-/* === Neon Glow Animation === */
 @keyframes glow-pulse {
     0% {
         text-shadow:
