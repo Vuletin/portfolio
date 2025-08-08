@@ -111,9 +111,9 @@ pre, code {
     white-space: normal; /* Prevent line break */
     overflow-x: visible; /* No horizontal scrolling */
     word-break: break-word; /*Don't break long words */
-    display: flex; /* block for alignment */
-    align-items: center; /* Align items to the center */
-    flex-wrap: nowrap; /* No wrapping */
+    display: inline-flex; /* Inline flex for alignment */
+    align-items: baseline; /* Align items to the baseline */
+    flex-wrap: wrap; /* Allow wrapping */
     font-family: 'Press Start 2P', monospace;
     gap: 0.5rem; /* Space between prompt and text */
     margin-top: 2rem; /* Adds space below the header */
