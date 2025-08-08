@@ -330,7 +330,9 @@ body::after {
     text-shadow:
         2px 0 red,
        -2px 0 blue,
+       0 0 4px currentColor; /* optional glow */
 }
+
 /*
 .glow-chromatic::before,
 .glow-chromatic::after {
@@ -359,7 +361,7 @@ body::after {
     transform: translateX(1px);
     opacity: 0.6;
 }
-*/
+
 @keyframes glow-pulse {
     0% {
         text-shadow:
@@ -373,4 +375,13 @@ body::after {
             0 0 5px currentColor,
             0 0 10px currentColor;
     }
+}
+*/
+
+.typed {
+    color: #00ffcc !important;
+    text-shadow:
+        2px 0 currentColor,
+       -2px 0 currentColor,
+       0 0 8px currentColor;
 }
