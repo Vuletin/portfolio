@@ -108,9 +108,9 @@ pre, code {
 
 /* ==== Terminal Intro Style ==== */
 .terminal p {
-    white-space: normal; /* normal whitespace */
+    white-space: nowrap; /* Prevent line break */
     overflow-x: auto; /* Allow horizontal scrolling */
-    word-break: break-word; /* Break long words */
+    word-break: normal; /*Don't break long words */
     display: block; /* block for alignment */
     align-items: center; /* Align items to the center */
     flex-wrap: nowrap; /* No wrapping */
