@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Home - Sava{% endblock %}
 {% block content %}
-    <h1 class="gradient-text">Welcome to Sava's Portfolio</h1>
+    <h1 class="gradient-text">
+        <span class="chromatic-finish" data-text="Welcome to Sava's Portfolio">
+            Welcome to Sava's Portfolio
+        </span>
+    </h1>
     <div class="terminal">
-        <p>
-            <span style="white-space:nowrap;">
-                <span class="prompt">C:\></span>
-                <span class="chromatic-finish typed" data-text="I'm Sava — a passionate full-stack developer."></span>
-            </span>
-            <span class="cursor chromatic-finish">█</span>
-        </p>
+    <p>
+        <span class="prompt">C:\></span>
+        <span class="typed chromatic-finish" data-text="I'm Sava — a passionate full-stack developer."></span>
+        <span class="cursor">█</span>
+    </p>
     </div>
 {% endblock %}

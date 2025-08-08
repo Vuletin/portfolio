@@ -333,50 +333,31 @@ body::after {
 }
 
 .chromatic-finish {
-    text-shadow:
-        2px 0 red,
-       -2px 0 blue,
+  position: relative;
+  color: #00ffcc; /* neon teal */
+  animation: glow-pulse 2.5s infinite alternate;
 }
 
-
-.glow-chromatic::before,
-.glow-chromatic::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 0; /* Behind the main text */
-    color: transparent;
-    mix-blend-mode: screen; /* Helps blend colors softly */
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+/* Remove attr(data-text) and use content: inherit for shadow layers */
+.chromatic-finish::before,
+.chromatic-finish::after {
+  content: inherit;          /* ✅ use this instead */
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  color: #00ffcc;
 }
 
-
-.glow-chromatic::before {
-    text-shadow: 1px 0 red;
-    transform: translateX(-1px);
-    opacity: 0.6;
+.chromatic-finish::before {
+  text-shadow: -1px 0 red;
+  transform: translateX(-1px);
+  opacity: 0.6;
 }
 
-.glow-chromatic::after {
-    text-shadow: -1px 0 blue;
-    transform: translateX(1px);
-    opacity: 0.6;
-}
-
-@keyframes glow-pulse {
-    0% {
-        text-shadow:
-            0 0 1px currentColor,
-            0 0 3px currentColor,
-            0 0 6px currentColor;
-    }
-    100% {
-        text-shadow:
-            0 0 2px currentColor,
-            0 0 5px currentColor,
-            0 0 10px currentColor;
-    }
+.chromatic-finish::after {
+  text-shadow: 1px 0 blue;
+  transform: translateX(1px);
+  opacity: 0.6;
 }
