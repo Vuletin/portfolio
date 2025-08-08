@@ -109,13 +109,13 @@ pre, code {
 /* ==== Terminal Intro Style ==== */
 .terminal p {
     white-space: normal; /* Prevent line break */
-    overflow-x: auto; /* Allow horizontal scrolling */
-    word-break: normal; /*Don't break long words */
-    display: block; /* block for alignment */
+    overflow-x: visible; /* No horizontal scrolling */
+    word-break: break-word; /*Don't break long words */
+    display: flex; /* block for alignment */
     align-items: center; /* Align items to the center */
     flex-wrap: nowrap; /* No wrapping */
     font-family: 'Press Start 2P', monospace;
-    gap: 0.2rem; /* Space between prompt and text */
+    gap: 0.5rem; /* Space between prompt and text */
     margin-top: 2rem; /* Adds space below the header */
     font-size: 14px;
     color: #00ffcc;
@@ -340,7 +340,6 @@ body::after {
     text-shadow:
         2px 0 red,
        -2px 0 blue,
-       0 2px green;
 }
 
 
