@@ -338,9 +338,9 @@ body::after {
 
 .chromatic-finish {
     text-shadow:
-        0 0 4px currentColor, /* optional glow */
         2px 0 red,
        -2px 0 blue,
+       0 2px green;
 }
 
 /*
