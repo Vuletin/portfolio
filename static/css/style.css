@@ -108,12 +108,12 @@ pre, code {
 
 /* ==== Terminal Intro Style ==== */
 .terminal p {
-    white-space: nowrap; /* Prevent line break */
+    white-space: normal; /* Prevent line break */
     overflow-x: auto; /* Allow horizontal scrolling */
     word-break: normal; /*Don't break long words */
     display: block; /* block for alignment */
     align-items: center; /* Align items to the center */
-    flex-wrap: nowrap; /* No wrapping */
+    flex-wrap: wrap; /* Allow wrapping */
     font-family: 'Press Start 2P', monospace;
     gap: 0.2rem; /* Space between prompt and text */
     margin-top: 2rem; /* Adds space below the header */
