@@ -334,6 +334,7 @@ body::after {
 
 .chromatic {
   position: relative;
+  color: #00ffcc; /* base teal color always visible */
 }
 
 /* Red shadow */
@@ -345,6 +346,7 @@ body::after {
   color: transparent;
   text-shadow: -2px 0 red;
   pointer-events: none;
+  z-index: -1; /* puts it behind base text */
 }
 
 /* Blue shadow */
@@ -356,6 +358,7 @@ body::after {
   color: transparent;
   text-shadow: 2px 0 blue;
   pointer-events: none;
+  z-index: -1; /* also behind */
 }
 
 /* Blinking cursor */
