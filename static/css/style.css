@@ -343,7 +343,7 @@ body::after {
        0 2px green;
 }
 
-/*
+
 .glow-chromatic::before,
 .glow-chromatic::after {
     content: attr(data-text);
@@ -351,15 +351,14 @@ body::after {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 0; /* Behind the main text 
+    z-index: 0; /* Behind the main text */
     color: transparent;
-    mix-blend-mode: screen; /* Helps blend colors softly 
+    mix-blend-mode: screen; /* Helps blend colors softly */
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
-*/
 
-/*
+
 .glow-chromatic::before {
     text-shadow: 1px 0 red;
     transform: translateX(-1px);
