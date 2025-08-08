@@ -148,9 +148,19 @@ pre, code {
     position: relative;
     display: inline-block;
     text-shadow:
-        1px 0 red,
-        -1px 0 blue,
-        0 1px green;
+        2px 0 red,
+        -2px 0 blue,
+        0 2px green;
+}
+
+.typed {
+    color: #00ffcc !important;
+    position: relative;
+    display: inline-block;
+    text-shadow:
+        2px 0 red,
+       -2px 0 blue,
+       0 2px green; /* Optional glow */
 }
 
 /* Flicker effect for headers */
@@ -332,6 +342,7 @@ body::after {
         2px 0 red,
        -2px 0 blue,
 }
+
 /*
 .glow-chromatic::before,
 .glow-chromatic::after {
