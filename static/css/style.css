@@ -330,9 +330,8 @@ body::after {
     text-shadow:
         2px 0 red,
        -2px 0 blue,
-       0 0 4px #00ffcc; /* optional glow */
+       0 0 4px currentColor; /* optional glow */
 }
-
 /*
 .glow-chromatic::before,
 .glow-chromatic::after {
