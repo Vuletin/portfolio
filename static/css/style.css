@@ -150,7 +150,6 @@ pre, code {
     text-shadow:
         2px 0 red,
         -2px 0 blue,
-        0 2px green;
 }
 
 .typed {
@@ -160,7 +159,6 @@ pre, code {
     text-shadow:
         2px 0 red,
        -2px 0 blue,
-       0 2px green; 
 }
 
 /* Flicker effect for headers */
@@ -295,7 +293,6 @@ body::after {
             0 0 7px currentColor,
             1px 0 red,
             -1px 0 blue,
-            0 1px green;
     }
     50% {
         text-shadow:
@@ -303,7 +300,6 @@ body::after {
             0 0 12px currentColor,
             1px 0 red,
             -1px 0 blue,
-            0 1px green;
     }
 }
 
