@@ -152,17 +152,17 @@ pre, code {
         -2px 0 blue,
         0 2px green;
 }
-
+/*
 .typed {
     color: #00ffcc !important;
-    position: relative;
-    display: inline-block;
+    position: relative; 
+    display: inline-block;  
     text-shadow:
         2px 0 red,
        -2px 0 blue,
-       0 2px green; /* Optional glow */
+       0 2px green; 
 }
-
+/*
 /* Flicker effect for headers */
 h1, h2, h3, p {
     animation: flicker 4s infinite alternate;
