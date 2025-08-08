@@ -111,7 +111,7 @@ pre, code {
     white-space: normal; /* normal whitespace */
     overflow-x: auto; /* Allow horizontal scrolling */
     word-break: break-word; /* Break long words */
-    display: inline; /* inline for alignment */
+    display: block; /* block for alignment */
     align-items: center; /* Align items to the center */
     flex-wrap: nowrap; /* No wrapping */
     font-family: 'Press Start 2P', monospace;
