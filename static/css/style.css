@@ -153,12 +153,8 @@ pre, code {
 }
 
 .typed {
-    color: #00ffcc !important;
-    position: relative; 
-    display: inline-block;  
-    text-shadow:
-        2px 0 red,
-       -2px 0 blue,
+  color: #00ffcc;
+  white-space: pre-wrap; /* wrap lines but keep spaces */
 }
 
 /* Flicker effect for headers */
@@ -332,32 +328,52 @@ body::after {
         0 0 6px currentColor;
 }
 
-.chromatic-finish {
+.prompt {
+  color: #ff33cc; /* pink for prompt */
+}
+
+.chromatic {
   position: relative;
-  color: #00ffcc; /* neon teal */
-  animation: glow-pulse 2.5s infinite alternate;
 }
 
-/* Remove attr(data-text) and use content: inherit for shadow layers */
-.chromatic-finish::before,
-.chromatic-finish::after {
-  content: inherit;          /* ✅ use this instead */
+/* Red shadow */
+.chromatic::before {
+  content: attr(data-text);
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
+  color: transparent;
+  text-shadow: -2px 0 red;
   pointer-events: none;
-  z-index: -1;
+}
+
+/* Blue shadow */
+.chromatic::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: transparent;
+  text-shadow: 2px 0 blue;
+  pointer-events: none;
+}
+
+/* Blinking cursor */
+.cursor {
+  display: inline-block;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Terminal look */
+.terminal {
+  font-family: 'Press Start 2P', monospace;
   color: #00ffcc;
-}
-
-.chromatic-finish::before {
-  text-shadow: -1px 0 red;
-  transform: translateX(-1px);
-  opacity: 0.6;
-}
-
-.chromatic-finish::after {
-  text-shadow: 1px 0 blue;
-  transform: translateX(1px);
-  opacity: 0.6;
+  white-space: normal; /* allow wrapping */
+  overflow-wrap: break-word;
 }

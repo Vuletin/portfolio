@@ -59,22 +59,23 @@
     </div>
 
     <!-- ✅ Custom JS for typing effect -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const typed = document.querySelector(".typed");
-  const text = typed.dataset.text;
-  let i = 0;
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const typed = document.querySelector(".typed");
+    const text = typed.dataset.text;
+    let i = 0;
 
-  function typeNextChar() {
-    if (i < text.length) {
-      typed.textContent += text.charAt(i);
-      i++;
-      setTimeout(typeNextChar, 50);
+    function typeNextChar() {
+        if (i < text.length) {
+        typed.dataset.text = text.substring(0, i + 1); // updates chromatic shadows
+        typed.textContent = text.substring(0, i + 1); // updates visible text
+        i++;
+        setTimeout(typeNextChar, 50);
+        }
     }
-  }
-  typeNextChar();
-});
-</script>
+    typeNextChar();
+    });
+    </script>
 
 </body>
 </html>
