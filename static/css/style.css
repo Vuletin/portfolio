@@ -113,7 +113,7 @@ pre, code {
     word-break: normal; /*Don't break long words */
     display: block; /* block for alignment */
     align-items: center; /* Align items to the center */
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: nowrap; /* No wrapping */
     font-family: 'Press Start 2P', monospace;
     gap: 0.2rem; /* Space between prompt and text */
     margin-top: 2rem; /* Adds space below the header */
