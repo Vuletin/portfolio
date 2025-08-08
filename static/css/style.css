@@ -325,6 +325,14 @@ body::after {
         0 0 3px #00ffcc,
         0 0 6px #00ffcc;
 }
+
+.chromatic-finish {
+    text-shadow:
+        2px 0 red,
+       -2px 0 blue,
+       0 0 4px #00ffcc; /* optional glow */
+}
+
 /*
 .glow-chromatic::before,
 .glow-chromatic::after {
@@ -341,11 +349,6 @@ body::after {
 }
 */
 
-.chromatic-finish {
-    text-shadow:
-        1px 0 red,
-       -1px 0 blue;
-}
 /*
 .glow-chromatic::before {
     text-shadow: 1px 0 red;
