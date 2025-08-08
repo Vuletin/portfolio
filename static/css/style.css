@@ -116,6 +116,7 @@ pre, code {
     flex-wrap: nowrap; /* No wrapping */
     font-family: 'Press Start 2P', monospace;
     gap: 0.2rem; /* Space between prompt and text */
+    margin-top: 2rem; /* Adds space below the header */
     font-size: 14px;
     color: #00ffcc;
     background-color: #000;
