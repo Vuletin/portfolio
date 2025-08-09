@@ -312,6 +312,9 @@ body::after {
     -webkit-background-clip: text;
     background-clip: text;
     animation: gradient-glow 4s linear infinite;
+    text-shadow:    
+        2px 0 red,
+        -2px 0 blue
 }
 
 @keyframes gradient-glow {
@@ -328,13 +331,11 @@ body::after {
         0 0 6px currentColor;
 }
 
-.prompt {
-  color: #ff33cc; /* pink for prompt */
-}
-
 .chromatic {
   position: relative;
   color: #00ffcc; /* base teal color always visible */
+  animation: glow-pulse 2.5s infinite alternate;
+  text-shadow: 0 0 2px currentColor;
 }
 
 /* Red shadow */
