@@ -15,6 +15,7 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")  # your Gmail
 app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")  # Gmail app password
 app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_USERNAME")
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 mail = Mail(app)
 
@@ -52,5 +53,5 @@ def contact():
         return redirect('/contact')
     return render_template('contact.html')
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)

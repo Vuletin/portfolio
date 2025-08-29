@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Sava - Full-Stack Developer with Python">
     <meta name="keywords" content="Python developer, Flask, portfolio, full-stack developer, Sava">
-    <meta name="author" class="chromatic-finish" content="Sava">
+    <meta name="author" class="chromatic" content="Sava">
     <title>{% block title %}Sava's Portfolio{% endblock %}</title>
 
     <!-- ✅ Bootstrap CSS -->
@@ -29,10 +29,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link chromatic-finish" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link chromatic-finish" href="/projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link chromatic-finish" href="/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link chromatic-finish" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -40,42 +40,48 @@
 
     <!-- ✅ Page Content -->
     <main class="container mt-4">
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
     </main>
-
+    
     <!-- ✅ Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p class="mb-0 chromatic-finish">&copy; {{ 2025 }} Sava.</p>
+        <p class="mb-0 chromatic">&copy; {{ 2025 }} Sava.</p>
     </footer>
-
+    
     <!-- ✅ Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- ✅ Custom CSS for terminal effect -->
+    
+    <!-- CRT Scanline Overlay -->
     <div class="scanline-container">
         <div class="scanline" style="animation-delay: 0s;"></div>
-        <div class="scanline" style="animation-delay: 1.5s;"></div>
-        <div class="scanline" style="animation-delay: 2.3s;"></div>
+        <div class="scanline" style="animation-delay: 1s;"></div>
+        <div class="scanline" style="animation-delay: 2s;"></div>
     </div>
-
+    
     <!-- ✅ Custom JS for typing effect -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-    const typed = document.querySelector(".typed");
-    const text = typed.dataset.text;
-    let i = 0;
+    const typedElements = document.querySelectorAll(".typed");
 
-    function typeNextChar() {
+    typedElements.forEach((typedEl, idx) => {
+        const text = typedEl.dataset.text;
+        let i = 0;
+
+        function typeNextChar() {
         if (i < text.length) {
-        typed.dataset.text = text.substring(0, i + 1); // updates chromatic shadows
-        typed.textContent = text.substring(0, i + 1); // updates visible text
-        i++;
-        setTimeout(typeNextChar, 50);
+            typedEl.setAttribute("data-typed", text.substring(0, i+1));
+            typedEl.textContent = text.substring(0, i+1);
+            i++;
+            setTimeout(typeNextChar, 30); // adjust typing speed
         }
-    }
-    typeNextChar();
+        }
+
+        // Delay each typed block so they don't all start at once
+        setTimeout(typeNextChar, idx * 1000);
+    });
     });
     </script>
+
 
 </body>
 </html>
