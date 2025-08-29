@@ -68,11 +68,14 @@ footer {
 /* ==== Contact Form - Dark Theme ==== */
 form label {
     font-size: 12px;
+    width: 400px;
+    max-width: 90%;
+    margin: 0 auto; /* Center the label */
     text-transform: uppercase;
     color: #00ffcc;
     text-shadow: 
-    blue 2px 0,
-    red -2px 0;
+    blue 1px 0,
+    red -1px 0;
 }
 
 form input, form textarea {
@@ -81,9 +84,9 @@ form input, form textarea {
     color: #00ffcc;                      /* Neon text */
     font-family: 'Press Start 2P', monospace;
     font-size: 12px;
-    box-sizing: content-box;
+    box-sizing: border-box;  /* border+padding included in width */
     width: 50%;
-    border: solid #00ffcc 10px;
+    border: 2px solid #00ffcc; /* maybe reduce from 10px */
     padding: 5px;
     box-shadow: #00ffcc 0 0 5px;
 }
@@ -93,6 +96,13 @@ form input:focus, form textarea:focus {
     box-shadow: 0 0 5px rgba(255, 51, 204, 0.7);
     outline: none;
 }
+
+form {
+  width: 600px;   /* fixed size */
+  max-width: 90%; /* responsive */
+  margin: 0 auto; /* center */
+}
+
 /* Submit button consistent with theme */
 .btn-primary {
     background-color: #00ffcc;
@@ -116,27 +126,41 @@ pre, code {
     font-family: 'Courier New', monospace;
 }
 
-/* ==== Terminal Intro Style ==== */
-.terminal p {
-    white-space: normal; /* Prevent line break */
-    overflow-x: visible; /* No horizontal scrolling */
-    word-break: break-word; /*Don't break long words */
-    display: flex; 
-    align-items: center; 
-    flex-wrap: wrap; /* Allow wrapping */
-    font-family: 'Press Start 2P', monospace;
-    gap: 0.5rem; /* Space between prompt and text */
-    margin-top: 2rem; /* Adds space below the header */
-    font-size: 14px;
-    color: #00ffcc;
-    background-color: #000;
-    padding: 40px;
-    border: 2px solid #00ffcc;
-    border-radius: 5px;
-    max-width: 600px;
-    margin: 50px auto;
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+.floating-char {
+  position: absolute;
+  font-family: monospace;
+  font-size: 20px;
+  color: #00ffcc; /* hacker green */
+  opacity: 0.5;
+  animation: fadeChar 3s;
+  pointer-events: none;
+  z-index: -1; /* behind navbar + content */
 }
+
+main, nav {
+  position: relative;
+  z-index: 2; /* ensure they’re above */
+}
+
+@keyframes fadeChar {
+  0%   { opacity: 0;}
+  30%  { opacity: .3;}
+  70%  { opacity: .3;}
+  100% { opacity: 0;}
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; }
+  20% { text-shadow: -2px 0 red, 2px 0 blue; }
+  40% { text-shadow: 3px 0 red, -3px 0 blue; }
+  60% { text-shadow: -1px 0 red, 1px 0 blue; }
+  100% { text-shadow: none; }
+}
+
+a:hover {
+  animation: glitch 0.4s linear infinite;
+}
+
 .typed-wrapper {
   display: inline; /* keeps cursor right after text */
 }
@@ -146,8 +170,8 @@ pre, code {
   margin-left: 1px;
   animation: blink 1s steps(2, start) infinite;
   text-shadow: 
-    2px 0 blue,
-    -2px 0 red;  
+    1px 0 blue,
+    -1px 0 red;  
 }
 
 @keyframes blink {
@@ -162,20 +186,20 @@ pre, code {
     position: relative;
     display: inline-block;
     text-shadow: 
-        2px 0 blue,
-        -2px 0 red;
+        1px 0 blue,
+        -1px 0 red;
 }
 
 .typed, .nav-item, p {
   color: #00ffcc;
   text-shadow: 
-    2px 0 blue,
-    -2px 0 red;  
+    1px 0 blue,
+    -1px 0 red;  
   white-space: pre-wrap; /* wrap lines but keep spaces */
 }
 
 /* Flicker effect for headers */
-h1, h2, h3, p {
+h1, h2, h3 {
     animation: flicker 4s infinite alternate;
 }
 
@@ -236,20 +260,22 @@ body {
     opacity: 0.15;
 }
 
-/* Wobble and move down */
 @keyframes scanline-move {
-    0% {
-        transform: translateY(0) scaleX(1);
-    }
-    30% {
-        transform: translateY(30vh) scaleX(1.01);
-    }
-    60% {
-        transform: translateY(60vh) scaleX(0.98);
-    }
-    100% {
-        transform: translateY(100vh) scaleX(1);
-    }
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(25vh) translateX(-1px);
+  }
+  50% {
+    transform: translateY(50vh) translateX(1px);
+  }
+  75% {
+    transform: translateY(75vh) translateX(-2px);
+  }
+  100% {
+    transform: translateY(100vh) translateX(0);
+  }
 }
 
 @keyframes glow-breathe {
@@ -293,10 +319,13 @@ body::after {
         ),
 }
 
-@keyframes static-flicker {
-    0% { opacity: 0.04; }
-    50% { opacity: 0.06; }
-    100% { opacity: 0.04; }
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+.flicker {
+  animation: flicker 3s infinite;
 }
 
 .gradient-effect {
@@ -346,19 +375,48 @@ body::after {
 }
 
 .chromatic::before {
-  text-shadow: -2px 0 red;
+  text-shadow: -1px 0 red;
   transform: translateX(-1px);
 }
 
 .chromatic::after {
-  text-shadow: 2px 0 blue;
+  text-shadow: 1px 0 blue;
   transform: translateX(1px);
 }
 
 /* Terminal look */
-.terminal {
+.terminal a{
   font-family: 'Press Start 2P', monospace;
   color: #00ffcc;
+  text-decoration: underline;
+  text-shadow: -1px red, 1px blue;
+  transition: color 0.2s, text-shadow 0.2s;
   white-space: normal; /* allow wrapping */
   overflow-wrap: break-word;
+}
+.terminal a:hover {
+  color: #ff33cc;                /* pink when hovered */
+  text-shadow: 0 0 10px #ff33cc; /* stronger glow */
+}
+
+/* ==== Terminal Intro Style ==== */
+.terminal p{
+    white-space: normal; /* Prevent line break */
+    overflow-x: visible; /* No horizontal scrolling */
+    word-break: break-word; /*Don't break long words */
+    display: flex; 
+    align-items: center; 
+    flex-wrap: wrap; /* Allow wrapping */
+    font-family: 'Press Start 2P', monospace;
+    gap: 0.5rem; /* Space between prompt and text */
+    margin-top: 2rem; /* Adds space below the header */
+    font-size: 14px;
+    color: #00ffcc;
+    background-color: #000;
+    padding: 40px;
+    border: 2px solid #00ffcc;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
 }
