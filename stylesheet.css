@@ -12,6 +12,7 @@ body {
 .navbar {
     background-color: #1a1a1a !important;   /* Darker navbar */
     border-bottom: 2px solid #00ffcc;       /* Neon teal border */
+    font-family: 'Press Start 2P', monospace;
 }
 
 .navbar-brand,
@@ -201,7 +202,8 @@ a:hover {
 /* Flicker effect for headers */
 h1, h2, h3 {
     animation: flicker 4s infinite alternate;
-}
+    font-family: 'Press Start 2P', monospace;
+  }
 
 @keyframes flicker {
     0% { opacity: 1}
@@ -323,7 +325,8 @@ body::after {
     animation: glow-breathe 3s infinite ease-in-out;
 }
 
-.gradient-text, .link {
+.gradient-text, .link, h1{
+    font-family: 'Press Start 2P', monospace;
     background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
     background-size: 200% auto;
     color: transparent;
