@@ -1,39 +1,45 @@
-{% extends "base.html" %}
-{% block title %}Contact - Sava{% endblock %}
-{% block content %}
-<div>
-    <h1 class="gradient-text">Contact Me</h1>
-    <div class="terminal">
-      <p>
-        <span class="typed-wrapper">
-          <span class="prompt">C:\></span>
-          <span class="typed" data-text="Want to work together or have a question? Reach out through the form below, or email me directly at vuletin92@gmail.com. I'm open to freelance, part-time, or full-time remote opportunities."></span> 
-          <span class="cursor">█</span>
-        </span>
-      </p>
-    </div>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, msg in messages %}
-          <div class="alert alert-{{ category }}">{{ msg }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Sava</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+      <h1 class="gradient-text">Contact Me</h1>
+      <div class="terminal">
+        <p>
+          <span class="typed-wrapper">
+            <span class="prompt">C:\></span>
+            <span class="typed" data-text="Want to work together or have a question? Reach out through the form below, or email me directly at vuletin92@gmail.com. I'm open to freelance, part-time, or full-time remote opportunities."></span> 
+            <span class="cursor">█</span>
+          </span>
+        </p>
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, msg in messages %}
+            <div class="alert alert-{{ category }}">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
 
-    <form name="contact" method="POST" data-netlify="true">
-        <div class="mb-3">
-            <label>Name</label>
-            <input type="text" class="form-control" name="name" required>
-        </div>
-        <div class="mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email" required>
-        </div>
-        <div class="mb-3">
-            <label>Message</label>
-            <textarea class="form-control" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send</button>
-    </form>
-</div>
-{% endblock %}
+      <form name="contact" method="POST" data-netlify="true">
+          <div class="mb-3">
+              <label>Name</label>
+              <input type="text" class="form-control" name="name" required>
+          </div>
+          <div class="mb-3">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" required>
+          </div>
+          <div class="mb-3">
+              <label>Message</label>
+              <textarea class="form-control" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+  </div>
+</body>
+</html>

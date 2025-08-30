@@ -1,38 +1,44 @@
-{% extends "base.html" %}
-{% block title %}Projects - Sava{% endblock %}
-{% block content %}
-<div>
-    <h1 class="gradient-text">My Projects</h1>
-        <div class="terminal">
-            <p>
-                <span class="typed-wrapper">
-                    <span class="projects-list"></span>
-                    <span class="prompt">C:\></span>
-                    <span class="typed" data-text="Here are some of the projects I've worked on:"></span>
-                    <span class="cursor">█</span>
-                </span>
-            </p>
-        </div>
-        <div class="projects">
-        <div class="terminal"><span class="projects-list"></span>
-            <p>
-                <span class="typed-wrapper">
-                    <span class="prompt">C:\></span>
-                    <a href="https://github.com/Vuletin/bank-system">🏦 Bank System (Flask)</a>
-                    <span class="typed" data-text="A secure online banking system with authentication, transaction tracking, and data visualization. Tech: Python (Flask), SQLite, HTML/CSS, Chart.js"></span>
-                    <span class="cursor">█</span>
-                </span>
-            </p>
-        </div>
-        <div class="terminal">
-            <p>
-                <span class="typed-wrapper">
-                    <span class="prompt">C:\></span>
-                    <a href="https://github.com/Vuletin/weather-app">🌤 Weather App (MERN)</a>
-                    <span class="typed" data-text="A full-stack weather app displaying current forecasts and search history. Tech: MERN Stack (MongoDB, Express, React, Node)"></span>
-                    <span class="cursor">█</span>
-                </span>
-            </p>
-        </div>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Sava</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+        <h1 class="gradient-text">My Projects</h1>
+            <div class="terminal">
+                <p>
+                    <span class="typed-wrapper">
+                        <span class="projects-list"></span>
+                        <span class="prompt">C:\></span>
+                        <span class="typed" data-text="Here are some of the projects I've worked on:"></span>
+                        <span class="cursor">█</span>
+                    </span>
+                </p>
+            </div>
+            <div class="projects">
+            <div class="terminal"><span class="projects-list"></span>
+                <p>
+                    <span class="typed-wrapper">
+                        <span class="prompt">C:\></span>
+                        <a href="https://github.com/Vuletin/bank-system">🏦 Bank System (Flask)</a>
+                        <span class="typed" data-text="A secure online banking system with authentication, transaction tracking, and data visualization. Tech: Python (Flask), SQLite, HTML/CSS, Chart.js"></span>
+                        <span class="cursor">█</span>
+                    </span>
+                </p>
+            </div>
+            <div class="terminal">
+                <p>
+                    <span class="typed-wrapper">
+                        <span class="prompt">C:\></span>
+                        <a href="https://github.com/Vuletin/weather-app">🌤 Weather App (MERN)</a>
+                        <span class="typed" data-text="A full-stack weather app displaying current forecasts and search history. Tech: MERN Stack (MongoDB, Express, React, Node)"></span>
+                        <span class="cursor">█</span>
+                    </span>
+                </p>
+            </div>
+    </div>
+</body>
+</html>
