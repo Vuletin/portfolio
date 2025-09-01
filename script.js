@@ -41,8 +41,8 @@ function spawnChar() {
     const mainWidth = container.offsetWidth;
 
     // define left/right zones relative to main
-    const leftZone = { x: [330, -270], y: [60, mainHeight] };
-    const rightZone = { x: [mainWidth - 330, mainWidth + 270], y: [60, mainHeight] };
+    const leftZone = { x: [630, -270], y: [60, mainHeight - 60] };
+    const rightZone = { x: [mainWidth - 630, mainWidth + 270], y: [60, mainHeight - 60] };
     const zones = [leftZone, rightZone];
 
     const zone = zones[Math.floor(Math.random() * zones.length)];
@@ -55,11 +55,11 @@ function spawnChar() {
     container.appendChild(char);
 
     // remove after fade
-    setTimeout(() => char.remove(), 2000);
+    setTimeout(() => char.remove(), 6000);
 }
 
 // spawn one every 500–1000ms
-setInterval(spawnChar, 20);
+setInterval(spawnChar, 100);
 });
 
 // ✅ Custom JS for typing effect
@@ -76,7 +76,7 @@ typedElements.forEach((typedEl, idx) => {
         typedEl.setAttribute("data-typed", text.substring(0, i+1));
         typedEl.textContent = text.substring(0, i+1);
         i++;
-        setTimeout(typeNextChar, 30); // adjust typing speed
+        setTimeout(typeNextChar, 5); // adjust typing speed
     }
     }
 
