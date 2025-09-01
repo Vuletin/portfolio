@@ -294,33 +294,6 @@ main.container {
         0 0 6px currentColor;
 }
 
-.chromatic {
-  position: relative;
-  color: #00ffcc; /* base teal color always visible */
-  animation: glow-pulse 2.5s infinite alternate;
-}
-
-.chromatic::before,
-.chromatic::after {
-  content: attr(data-typed); /* instead of data-text */
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: transparent;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.chromatic::before {
-  text-shadow: -1px 0 red;
-  transform: translateX(-1px);
-}
-
-.chromatic::after {
-  text-shadow: 1px 0 blue;
-  transform: translateX(1px);
-}
-
 /* Terminal look */
 .terminal a{
   font-family: 'Press Start 2P', monospace;
